@@ -59,7 +59,7 @@ function trackPageView(filterType) {
 
 
 // ===================== LOCAL DATA =====================
-const jsonData = {
+  const jsonData = {
   "categories": {
     "alomra": {
       "tableHeader": {
