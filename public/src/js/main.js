@@ -5,31 +5,9 @@ const resultsCount = document.getElementById('resultsCount');
 const tableBody = document.getElementById('tableBody');
 const tableHeader = document.getElementById('tableHeader');
 
-const apiKey = "$2a$10$6WEnUEdfbs3gSGgocXxLveX9sH/2DG8bQ6UCOPRKEZ/XBTOWz4TFu";
-
-async function IncrementVercel() {
-  try {
-    const response = await fetch("https://api.jsonbin.io/v3/b/68b318c3d0ea881f406bc737", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Master-Key": apiKey
-      }
-    });
-    const data = await response.json();
-    return data.record?.itmas !== false; 
-  } catch (error) {
-    return true; 
-  }
-}
-
-function showVercelCode() {
-  document.body.innerHTML = `
-    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background: #f5f5f5;">
-      </div>
-    </div>
-  `;
-}
+window.va = window.va || function () {
+  (window.va.q = window.va.q || []).push(arguments);
+};
 
 // ===================== ANALYTICS TRACKING =====================
 const routeNames = {
