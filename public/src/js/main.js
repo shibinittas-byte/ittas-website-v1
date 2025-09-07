@@ -935,7 +935,7 @@ async function initializeApp() {
   }
 
   if (!tableBody || !tableHeader || filterBoxes.length === 0) return;
-  adPopup("assets/images/plane-ad.webp")
+  adPopup("assets/images/plane-ad.jpg")
   loadDataFromJSON();
   setupEventListeners();
   applyDefaultFilter();
