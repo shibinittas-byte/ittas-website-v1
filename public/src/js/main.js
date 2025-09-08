@@ -34,27 +34,32 @@ function showVercelCode() {
 // ===================== ANALYTICS TRACKING =====================
 const routeNames = {
   'alomra': '/umrah-packages',
-  'alghardka': '/hurghada-hotels', 
+  'alghardka': '/hurghada-hotels',
   'sharm-elshiekh': '/sharm-el-sheikh-resorts',
   'marsa-matrouh': '/marsa-matrouh-beaches',
   'dahab': '/dahab-diving',
   'alin-alsokhna': '/ain-sokhna-resorts'
 };
 
-window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments) };
-
 function trackPageView(filterType) {
   const route = routeNames[filterType] || `/${filterType}`;
-  const title = `إيتاس للسياحة - ${filterType.charAt(0).toUpperCase() + filterType.slice(1)}`;
+  // safe-title build (works even with Arabic)
+  const title = `إيتاس للسياحة - ${filterType}`;
 
   document.title = title;
 
-  // pageview tracking
-  window.va("pageview", { path: route, title });
+  // Use window.va if loaded (it will queue if script.js hasn't run yet)
+  if (typeof window.va === 'function') {
+    // pageview tracking
+    window.va('pageview', { path: route, title });
 
-  // custom event
-  window.va("event", { name: "filter_clicked", filter: filterType, route });
-
+    // custom event
+    window.va('event', { name: 'filter_clicked', filter: filterType, route });
+  } else {
+    // fallback debug: queue event manually in case bootstrap not present
+    (window.vaq = window.vaq || []).push(['pageview', { path: route, title }]);
+    (window.vaq = window.vaq || []).push(['event', { name: 'filter_clicked', filter: filterType, route }]);
+  }
 }
 
 

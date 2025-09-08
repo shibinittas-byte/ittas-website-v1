@@ -48,10 +48,14 @@
 
     
 <script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
+      // Correct bootstrap: use window.vaq as the queue
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
 
-<script src="src/js/main.js"></script>
+    <!-- Load Vercel Insights from the deployed site root (defer) -->
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <!-- Your app script (loads after va is defined & script.js requested) -->
+    <script src="src/js/main.js"></script>
   </body>
 </html>
