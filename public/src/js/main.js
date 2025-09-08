@@ -759,7 +759,7 @@ function renderTable(data) {
     .map(key => `<th>${jsonData.categories[firstItemCategory].tableHeader[key]}</th>`)
     .join('');
 
-  const colors = ["#ddd", "#49cda91f",];
+  const colors = ["#ddd", "#ccc",];
   let colorIndex = 0;
 
   let displayedRows = 0;
