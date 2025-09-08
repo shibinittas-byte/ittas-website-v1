@@ -246,6 +246,17 @@ a {
     margin-bottom: 24px;
     direction: rtl;
 }
+.table-header .cta {
+    display: none;
+    border-radius: 16px;
+    padding: 16px 28px;
+    cursor: pointer;
+    background: linear-gradient(135deg, rgb(22, 153, 118), rgba(22, 153, 118, 0.9));
+    color: white;
+    border-color: rgb(22, 153, 118);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(22, 153, 118, 0.25), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 .table-title {
     font-size: 1.75rem;
@@ -704,3 +715,5 @@ tbody tr:hover::after {
         background-clip: text;
     }
 } */
+
+

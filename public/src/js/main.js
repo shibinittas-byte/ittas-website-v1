@@ -4,6 +4,7 @@ const filterBoxes = document.querySelectorAll('.filter-box');
 const resultsCount = document.getElementById('resultsCount');
 const tableBody = document.getElementById('tableBody');
 const tableHeader = document.getElementById('tableHeader');
+const cta = document.getElementById("cta")
 
 const apiKey = "$2a$10$6WEnUEdfbs3gSGgocXxLveX9sH/2DG8bQ6UCOPRKEZ/XBTOWz4TFu";
 
@@ -72,6 +73,7 @@ function trackPageView(filterType) {
         "makah": "مكة المكرمة",
         "almadinah": "المدينة المنورة",
         "price": "السعر",
+        "cta" : "إضغط هنا لعرض جدول العمره بالكامل"
       },
       "items": [
         {
@@ -736,7 +738,7 @@ function renderPopup(ele, image) {
     
   });
 }
-
+let popupBound = false;
 function renderTable(data) {
   tableBody.innerHTML = '';
   tableHeader.innerHTML = '';
@@ -753,6 +755,10 @@ function renderTable(data) {
   // نجيب الهيدر من الكاتيجوري
   const firstItemCategory = data[0].categoryKey;
   const headers = Object.keys(jsonData.categories[firstItemCategory].tableHeader);
+
+  
+  console.log(jsonData.categories[firstItemCategory].tableHeader["cta"]);
+  
 
   // رسم الهيدر
   tableHeader.innerHTML = headers
@@ -771,11 +777,30 @@ function renderTable(data) {
     const groupColor = colors[colorIndex % colors.length];
     colorIndex++;
 
+    const ctaText = jsonData.categories[firstItemCategory].tableHeader["cta"]
+
+    if (item.image) {
+      cta.style.display ="block"
+      cta.innerHTML = ctaText;
+
+      if(!popupBound) {
+      cta.addEventListener("click", () => {
+        adPopup("/assets/images/alomraImg.webp");
+      });
+
+      popupBound = true;
+    }} else {
+      cta.style.display ="none"
+      cta.innerHTML = "";
+    }
+
     if (hasOffers) {
       item.offers.forEach((offer, index) => {
         if (item.image) {
           renderPopup(tr, item.image);
         }
+    
+        
         const tr = document.createElement('tr');
         tr.style.backgroundColor = groupColor;
         headers.forEach(h => {
