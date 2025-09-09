@@ -110,13 +110,14 @@ function trackPageView(filterType) {
         "price": "سعر الفرد",
       },
       "items": [
-        // {
-        //   "id": "UM001",
-        //   "place": "قرية اللؤلؤة - العين السخنة",
-        // "day": "6/9/2025",
-        // "governorate": "محافظة السويس",
-        // "price": "350 جنية",
-        // },
+        {
+          "id": "UM001",
+          "place": "قرية اللؤلؤة - العين السخنة",
+        "day": "13/9/2025",
+        "governorate": "محافظة السويس",
+        "price": "350 جنية",
+        "image": "/assets/images/dayUseAd.webp"
+        },
       ]
     },  
     "alin-alsokhna": {
