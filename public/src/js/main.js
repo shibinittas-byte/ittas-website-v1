@@ -116,7 +116,7 @@ function trackPageView(filterType) {
         "day": "13/9/2025",
         "governorate": "محافظة السويس",
         "price": "350 جنية",
-        "image": "/assets/images/dayUseAd.webp"
+        
         },
       ]
     },  
