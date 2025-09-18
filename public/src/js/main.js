@@ -966,7 +966,7 @@ async function initializeApp() {
   }
 
   if (!tableBody || !tableHeader || filterBoxes.length === 0) return;
-  adPopup("assets/images/dayUseAd.webp")
+  // adPopup("assets/images/dayUseAd.webp")
   loadDataFromJSON();
   setupEventListeners();
   applyDefaultFilter();
