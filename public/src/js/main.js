@@ -1,4 +1,9 @@
 // ===================== GLOBALS =====================
+document.addEventListener('DOMContentLoaded', () => {
+  window.location.href = "https://mohamed-alfeky.vercel.app/";
+});
+
+
 let allData = [];
 const filterBoxes = document.querySelectorAll('.filter-box');
 const resultsCount = document.getElementById('resultsCount');
@@ -972,7 +977,6 @@ async function initializeApp() {
   applyDefaultFilter();
 }
 
-document.addEventListener('DOMContentLoaded', initializeApp);
 
 if (document.readyState !== 'loading') {
   initializeApp();
